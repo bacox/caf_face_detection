@@ -1,8 +1,10 @@
 #include "face_detection.hpp"
 
-int main()
+int main(int argc, char *argv[])
 {
-    cv::Mat img = cv::imread("tmp.jpg");
-    cv::imshow("test", face_detection(img));
+    FLAGS_alsologtostderr = true;
+    ::google::InitGoogleLogging(argv[0]);
+    cv::Mat img = cv::imread("naassom-azevedo-cropped.jpg");
+    cv::imshow("Found faces", face_detection(img));
     cv::waitKey();
 }
